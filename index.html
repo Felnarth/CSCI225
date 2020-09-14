@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+    <link rel="stylesheet" href="css/MyCSS.css">
     <head>
         <title>CSCI225 Homepage of Aaron Derr</title>
     </head>
@@ -11,6 +11,12 @@
             <li>
                 <a href="https://www.usca.edu" target="_blank">USCA Homepage</a>
             </li>
+            <li>
+                <a href="#assignments">Assignments</a>
+            </li>
+            <li>
+                <a href="#contactInfo">Contact Information</a>
+            </li>
         </ul>
     </div>
 
@@ -18,14 +24,14 @@
         <h1>Introduction</h1>
         <p>
             Welcome to my CSCI225 github page. <br />
-            My name is Aaron Derr. I am a senior in the applied computer science (no concentration) curriculum. I work at Savannah River Site in the Tritium Process Control group. <br />
+            My name is Aaron Derr. I am a senior in the applied computer science (no concentration) curriculum. I work at Savannah River Site in Savannah River Nuclear Solutions. <br />
             My job primarily involves database design and management (SQL & FileMaker), desktop application development (c# and filemaker), and web development (react js, node, asp.net core). <br />
-            My primary hobbies are reading, programming, and playing video games.
+            My hobbies are reading, programming, and playing video games.
         </p>
         <img src="img/self.jpg" alt="Picture_Me" width="200" height="250"/>
     </div>
 
-    <div class="assignment">
+    <div class="assignment" id="assignments">
         <h1>Assignment</h1>
         <ul>
             <li>
@@ -48,7 +54,7 @@
         </ul>
     </div>
 
-    <address>
+    <address id="contactInfo">
         <p>
             Contact Information
         </p>
@@ -57,28 +63,131 @@
 
     <div class="schedule">
         <h1>Schedule</h1>
-        <table><caption>My Schedule</caption>
-            <thead>
-                <tr>
-                    <th>&nbsp;</th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>11:00-12:00</td>
-                    <td>
-                        PSYC A101-002 <br/>
-                        Introductory Psychology <br/>
-                    </td>
-                </tr>
-            </tbody>
+        <table style="width:100%"><caption>My Schedule</caption>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+            </tr>
+            
+            <tr>
+                <td rowspan="2" style="text-align: center">11:00-12:00</td>
+                <td style="background-color: chartreuse;" rowspan="2">
+                    PSYC A101-002 <br/>
+                    Introductory Psychology <br/>
+                    11:00 am - 11:50 am
+                </td>
+                <td rowspan="2">&nbsp;</td>
+                <td style="background-color: chartreuse;" rowspan="2">
+                    PSYC A101-002 <br/>
+                    Introductory Psychology <br/>
+                    11:00 am - 11:50 am
+                </td>
+                <td rowspan="2">&nbsp;</td>
+                <td style="background-color: chartreuse;" rowspan="2">
+                    PSYC A101-002 <br/>
+                    Introductory Psychology <br/>
+                    11:00 am - 11:50 am
+                </td>
+            </tr>
+
+            <tr>
+                
+            </tr>
+
+            <tr>
+                <td rowspan="2" style="text-align: center">12:00-1:00</td>
+                <td style="background-color: coral;" rowspan="3">
+                    CSCI A225-001 <br/>
+                    Web Development <br/>
+                    12:00 pm - 1:15 pm
+                </td>
+                <td rowspan="3">&nbsp;</td>
+                <td style="background-color: coral;" rowspan="3">
+                    CSCI A225-001 <br/>
+                    Web Development <br/>
+                    12:00 pm - 1:15 pm
+                </td>
+                <td rowspan="3">&nbsp;</td>
+                <td rowspan="3">&nbsp;</td>
+            </tr>
+
+            <tr></tr>
+
+            <tr>
+                <td rowspan="2" style="text-align: center;">1:00-2:00</td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2" style="text-align: center;">2:00-3:00</td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+            </tr>
+
+            <tr></tr>
+
+            <tr>
+                <td rowspan="2" style="text-align: center;">3:00-4:00</td>
+                <td rowspan="2">&nbsp;</td>
+                <td style="background-color: cyan;" rowspan="3">
+                    CSCI A411-001 <br/>
+                    Operating Systems <br/>
+                    3:05 pm - 4:20 pm
+                </td>
+                <td rowspan="2">&nbsp;</td>
+                <td style="background-color: cyan;" rowspan="3">
+                    CSCI A411-001 <br/>
+                    Operating Systems <br/>
+                    3:05 pm - 4:20 pm
+                </td>
+                <td rowspan="2">&nbsp;</td>
+            </tr>
+
+            <tr></tr>
+
+            <tr>
+                <td rowspan="2" style="text-align: center;">4:00-5:00</td>
+                <td style="background-color: gold;" rowspan="3">
+                    CSCI A520-300 <br/>
+                    Database System Design <br/>
+                    4:30 pm - 5:45 pm
+                </td>
+                <td style="background-color: gold;" rowspan="3">
+                    CSCI A520-300 <br/>
+                    Database System Design <br/>
+                    4:30 pm - 5:45 pm
+                </td>
+                <td rowspan="2">&nbsp;</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="3">&nbsp;</td>
+                <td rowspan="3">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2" style="text-align: center;">5:00-6:00</td>
+                <td rowspan="2">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
         </table>
     </div>
-
 </html>
-
