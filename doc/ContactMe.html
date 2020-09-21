@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../css/MyCSS.css">
+        <meta charset="utf-8"/>
+        <title>Aaron Derr Contact Video</title>
+    </head>
+
+    <h1>Enjoy this random video of cats in a marching parade.</h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lAIGb1lfpBw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+    <div class="practicearea">
+        <div class="practice">
+            <form name="feedback">
+                <h1>Feedback</h1>
+                <p>
+                    First Name: <input type="text" name="fname" placeholder="anonymous" required/>
+                </p>
+                <p>
+                    Last Name: <input type="text" name="lname" placeholder="anonymous" required/>
+                </p>
+                <p>
+                    Email: <input type="email" name="mail" placeholder="name@domain.com" required/>
+                </p>
+
+                <fieldset style="width: fit-content;" name="recommend"> 
+                    <legend>Recommend this site?</legend>
+                    <input type="radio" name="yesRecommend"/> Yes
+                    <input type="radio" name="noRecommend"/> No
+                </fieldset>
+                
+                <p>
+                    Favorite Site:
+                    <select name="favSite">
+                        <option value="google">Google</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="youtube">Youtube</option>
+                        <option value="reddit">Reddit</option>
+                    </select>
+                </p>
+                <p>
+                    Rating: 
+                    <input type="range" name="rating" min="0" max="10"/>
+                </p>
+                <p> 
+                    Additionl Comments: <br>
+                    <textarea name="comments" cols="30" rows="10" placeholder="Your comments . . ."></textarea>
+                </p>
+                <p>
+                    <input type="reset"/>
+                    <input type="submit"/>
+                </p>            
+            </form>
+        </div>
+    </div>
+</html>
