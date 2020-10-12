@@ -1,58 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="../css/home.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <meta charset="utf-8"/>
         <title>Aaron Derr Contact Video</title>
     </head>
 
-    <h1>Enjoy this random video of cats in a marching parade.</h1>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/lAIGb1lfpBw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-    <div class="practicearea">
-        <div class="practice">
-            <form name="feedback">
-                <h1>Feedback</h1>
-                <p>
-                    First Name: <input type="text" name="fname" placeholder="anonymous" required/>
-                </p>
-                <p>
-                    Last Name: <input type="text" name="lname" placeholder="anonymous" required/>
-                </p>
-                <p>
-                    Email: <input type="email" name="mail" placeholder="name@domain.com" required/>
-                </p>
-
-                <fieldset style="width: fit-content;" name="recommend"> 
-                    <legend>Recommend this site?</legend>
-                    <input type="radio" name="yesRecommend"/> Yes
-                    <input type="radio" name="noRecommend"/> No
-                </fieldset>
-                
-                <p>
-                    Favorite Site:
-                    <select name="favSite">
-                        <option value="google">Google</option>
-                        <option value="facebook">Facebook</option>
-                        <option value="twitter">Twitter</option>
-                        <option value="youtube">Youtube</option>
-                        <option value="reddit">Reddit</option>
-                    </select>
-                </p>
-                <p>
-                    Rating: 
-                    <input type="range" name="rating" min="0" max="10"/>
-                </p>
-                <p> 
-                    Additionl Comments: <br>
-                    <textarea name="comments" cols="30" rows="10" placeholder="Your comments . . ."></textarea>
-                </p>
-                <p>
-                    <input type="reset"/>
-                    <input type="submit"/>
-                </p>            
-            </form>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item font-weight-bold">
+                    <a class="nav-link" href="https://www.usca.edu" target="_blank">USCA</a>
+                </li>
+                <li class="nav-item font-weight-bold">
+                    <a class="nav-link" href="../index.html#introduction">Link to Introduction Section</a>
+                </li>
+                <li class="nav-item font-weight-bold">
+                    <a class="nav-link" href="../index.html#assignments">Link to Assignment Section</a>
+                </li>
+                <li class="nav-item font-weight-bold">
+                    <a class="nav-link" href="../index.html#contactInfo">Link to Contact Information</a>
+                </li>
+            </ul>
         </div>
-    </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-6" style="text-align: center;">
+                <h1>Enjoy this video of cats in a marching parade.</h1>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/lAIGb1lfpBw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
+            </div>
+            <div class="col-6">
+                <form class="needs-validation" name="feedback">
+                    <h1>Feedback</h1>
+                    <div class="form-group row">
+                        <div class="col">
+                            First Name: <input type="text" class="form-control" name="fname" placeholder="anonymous" required/>
+                        </div>
+                        <div class="col">
+                            Last Name: <input type="text" class="form-control" name="lname" placeholder="anonymous" required/>
+                            <small class="form-text text-muted"> Your last name...</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            Email: <input type="email" class="form-control" name="mail" placeholder="name@domain.com" required/>
+                        </div>                        
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            Recommend this site?
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="yesRad" value="YES">
+                                <label class="form-check-label" for="yesRad">Yes</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="noRad" value="NO">
+                                <label class="form-check-label" for="noRad">No</label>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            Favorite Site:
+                            <select class="form-control" name="favSite">
+                                <option value="google">Google</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="twitter">Twitter</option>
+                                <option value="youtube">Youtube</option>
+                                <option value="reddit">Reddit</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            Rating: 
+                            <input type="range" name="rating" class="form-range" min="1" max="5"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            Additionl Comments: <br>
+                            <textarea class="form-control" name="comments" placeholder="Your comments . . ." rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col"></div>
+                    </div>
+                    <p>
+                        <input type="reset" class="btn btn-primary"/>
+                        <input type="submit" class="btn btn-primary"/>
+                    </p>            
+                </form>
+            </div>
+        </div>
+    </div>  
 </html>
