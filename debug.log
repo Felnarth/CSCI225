@@ -6,3 +6,5 @@
 [0921/120631.494:ERROR:settings.cc(325)] Settings version is not 1
 [0921/121050.264:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
 [0921/121146.439:ERROR:settings.cc(325)] Settings version is not 1
+[1012/120326.131:ERROR:file_io.cc(90)] ReadExactly: expected 152, observed 40
+[1012/120530.230:ERROR:settings.cc(325)] Settings version is not 1
