@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <meta charset="utf-8"/>
+        <title>Aaron Derr Contact Video</title>
+        <style>
+            .container .row{
+                margin-top: 25px;
+            }
+
+            .container .form-control {
+                margin-top: 5px;
+            }
+
+            #title {
+                justify-content: center;
+            }
+
+            #equalArea {
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <div class="container">
+        <div class="row align-items-center" id="title"><h1>Unit Conversion Calculator - Length </h1></div>
+        <div class="row align-items-center">
+            <div class="col-3"></div>
+            <div class="col-2">
+                <b><u>Input</u></b><input type="text" class="form-control" id="num1"/>
+                <select class="form-control" id="inputUnit">
+                    <option value="inch">Inch</option>
+                    <option value="foot">Foot</option>
+                    <option value="yard">Yard</option>
+                    <option value="centi">Centimeter</option>
+                    <option value="meter">Meter</option>
+                </select>
+            </div>
+            <div class="col-2" id="equalArea"><h1>=</h1></div>
+            <div class="col-2">
+                <b><u>Output</u></b><input type="text" class="form-control" id="num2"/>
+                <select class="form-control" id="outputUnit">
+                    <option value="inch">Inch</option>
+                    <option value="foot">Foot</option>
+                    <option value="yard">Yard</option>
+                    <option value="centi">Centimeter</option>
+                    <option value="meter">Meter</option>
+                </select>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-5"></div>
+            <div class="col-2"><input type="button" class="form-control" value="Convert" id="convertButton"></div>
+            <div class="col-5"></div>
+        </div>
+    </div>
+
+    <script>
+        function DoConversion() {
+            var inputUnit = document.getElementById('inputUnit').value;
+            var outputUnit = document.getElementById('outputUnit').value;
+
+            var inputNumber = parseFloat(document.getElementById('num1').value);
+
+            if(isNaN(inputNumber) || inputNumber < 0)
+            {
+                window.alert("Please enter a valid positive number!");
+            }
+            else
+            {
+                var factor = 0;
+
+                if(inputUnit == "inch")
+                {
+                    switch(outputUnit) {
+                        case "inch":
+                            var factor = 1;
+                            break;
+                        case "foot":
+                            var factor = 0.08333;
+                            break;
+                        case "yard":
+                            var factor = 0.02778;
+                            break;
+                        case "centi":
+                            var factor = 2.54;
+                            break;
+                        case "meter":
+                            var factor = 0.0254;
+                            break;
+                    }
+                }
+                else if(inputUnit == "foot")
+                {
+                    switch(outputUnit) {
+                        case "inch":
+                            var factor = 12;
+                            break;
+                        case "foot":
+                            var factor = 1;
+                            break;
+                        case "yard":
+                            var factor = 0.33333;
+                            break;
+                        case "centi":
+                            var factor = 30.48;
+                            break;
+                        case "meter":
+                            var factor = 0.3048;
+                            break;
+                    }
+                }
+                else if(inputUnit == "yard")
+                {
+                    switch(outputUnit) {
+                        case "inch":
+                            var factor = 36;
+                            break;
+                        case "foot":
+                            var factor = 3;
+                            break;
+                        case "yard":
+                            var factor = 1;
+                            break;
+                        case "centi":
+                            var factor = 91.44;
+                            break;
+                        case "meter":
+                            var factor = 0.9144;
+                            break;
+                    }
+                }
+                else if(inputUnit == "centi")
+                {
+                    switch(outputUnit) {
+                        case "inch":
+                            var factor = 0.3937;
+                            break;
+                        case "foot":
+                            var factor = 0.03281;
+                            break;
+                        case "yard":
+                            var factor = 0.010936;
+                            break;
+                        case "centi":
+                            var factor = 1;
+                            break;
+                        case "meter":
+                            var factor = 0.01;
+                            break;
+                    }
+                }
+                else if(inputUnit == "meter")
+                {
+                    switch(outputUnit) {
+                        case "inch":
+                            var factor = 39.37;
+                            break;
+                        case "foot":
+                            var factor = 3.281;
+                            break;
+                        case "yard":
+                            var factor = 1.0936;
+                            break;
+                        case "centi":
+                            var factor = 100;
+                            break;
+                        case "meter":
+                            var factor = 1;
+                            break;
+                    }
+                }
+                document.getElementById('num2').value = (inputNumber * factor).toFixed(5);
+            }            
+        }
+
+        document.getElementById('convertButton').addEventListener('click', DoConversion, false);
+    </script>
+</html>
