@@ -160,6 +160,10 @@ a:hover {
     margin: 0px;
 }
 
+.assignment ul {
+    margin-top: 5px;
+}
+
 .portfolio {
     position: absolute;
     top: 472px;

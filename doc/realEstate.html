@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <title>Real Estate Company</title>
+
+    <style>
+        body{
+            height: 100%;
+            background-image: url("../img/sceneryBG.jpg");
+        }
+
+        .row {
+            margin-right: 0px;
+        }
+
+        .card-header {
+            text-align: center;
+        }
+
+        #loanCard {
+            display: none;
+        }
+
+        #calcBtn {
+            width: 100%;
+            height: 100%;
+        }
+
+        #loanTableCard {
+            display: none;
+        }
+
+        #aboutCard {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){
+            background: gray;
+        }
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="row no-gutters">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary btn-lg" id="buyBtn">Buy</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="saleBtn">Sale</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="loanBtn">Loan</button>
+            <button type="button" class="btn btn-secondary btn-lg" id="aboutBtn">About</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-7"></div>
+        <div class="col-4">
+            <div class="card" id="loanCard">
+                <div class="card-header">
+                    Loan Information
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="loanAmount">Loan Amount:</label>
+                            <input type="number" class="form-control" placeholder="$0.00" id="loanAmount">
+                        </div>
+                        <div class="form-group">
+                            <label for="interestRate">Interest Rate:</label>
+                            <input type="number" class="form-control" placeholder="0.0%" id="interestRate">
+                        </div>
+                        <div class="form-group">
+                            <label for="loanTerm">Loan Term (Years):</label>
+                            <input type="number" class="form-control" placeholder="0" id="loanTerm">
+                        </div>
+                        <div class="form-group">
+                            <label for="startDate">Start date:</label>
+                            <input type="month" class="form-control" id="startDate">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="bton btn-secondary btn-md" id="calcBtn">Calculate</button>
+                </div>
+            </div>
+            <div class="card" id="loanTableCard">
+                <div class="card-header">
+                    <p id="monthlyPayment"></p>
+                </div>
+                <div class="card-body" id="loanTableDiv">
+
+                </div>
+            </div>
+            <div class="card" id="aboutCard">
+                <div class="card-header">
+                    <p>About</p>
+                </div>
+                <div class="card-body">
+                    <p>Framework: Bootstrap</p>
+                    <p>Background Image: <a href="https://in.pinterest.com/pin/359513982729244436/" target="_blank">Click Me</a></p>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <script>
+
+        document.getElementById('aboutBtn').addEventListener('click', function(){
+            var loanCard = document.getElementById("loanCard");
+            var loanTableCard = document.getElementById("loanTableCard");
+            var aboutCard = document.getElementById('aboutCard');
+            loanCard.style.display = "none";
+            loanTableCard.style.display = "none";
+            aboutCard.style.display = "flex";
+            
+        }, false);
+
+        document.getElementById('loanBtn').addEventListener('click', function(){ 
+            var loanCard = document.getElementById("loanCard");
+            var loanTableCard = document.getElementById("loanTableCard");
+            var aboutCard = document.getElementById('aboutCard');
+            loanCard.style.display = "flex";
+            loanTableCard.style.display = "none";
+            aboutCard.style.display = "none";
+        }, false);
+
+        document.getElementById('calcBtn').addEventListener('click', function(){
+            var monthlyInterestRate = parseFloat(document.getElementById('interestRate').value/100)/12;
+            var loanTerm = parseInt(document.getElementById('loanTerm').value);
+            var loanAmount = parseFloat(document.getElementById('loanAmount').value);
+
+            if(isNaN(monthlyInterestRate) || isNaN(loanTerm) || isNaN(loanAmount) || document.getElementById('startDate').value == '')
+            {
+                window.alert("Please check you input. The first three fields must be positive numbers.");
+                return;
+            }
+            else if(monthlyInterestRate <= 0 || loanTerm <= 0 || loanAmount <= 0)
+            {
+                window.alert("Please check your input. The first three fields must be positive, nonzero numbers.");
+                return;
+            }
+
+            var loanCard = document.getElementById("loanCard");
+            var loanTableCard = document.getElementById("loanTableCard");
+            var aboutCard = document.getElementById('aboutCard');
+            loanCard.style.display = "none";
+            loanTableCard.style.display = "flex";
+            aboutCard.style.display = "none";
+
+            var monthlyPayment = loanAmount * monthlyInterestRate/(1 - (Math.pow(1+monthlyInterestRate,(-1) * 12 * loanTerm)));
+
+            document.getElementById('monthlyPayment').innerText = "Monthly Payment: " + monthlyPayment.toFixed(2);
+
+            var table = "<table><tr><th>Date</th><th>Interest</th><th>Principal</th><th>Balance</th></tr>";
+            var loanTableDiv = document.getElementById('loanTableDiv');
+
+            var startDate = String(document.getElementById('startDate').value).split("-");
+            var startYear = parseInt(startDate[0]);
+            var startMonth = startDate[1];
+
+            var interestForYear, principalForYear, interestForMonth;
+
+            for(var i = startYear; i < (startYear + loanTerm); i++)
+            {
+                interestForYear = 0;
+                principalForYear = 0;
+
+                for(var j = 1; j <= 12; j++)
+                {
+                    interestForMonth = loanAmount * monthlyInterestRate;
+                    interestForYear += interestForMonth;
+                    principalForYear += monthlyPayment - interestForMonth;
+                    loanAmount -= monthlyPayment - interestForMonth;
+                }                   
+
+                table += "<tr><td>" + startMonth + "/" + i + "-" + startMonth + "/" + (i+1) + "</td><td>$" + interestForYear.toFixed(2) + "</td><td>$" + principalForYear.toFixed(2) + "</td><td>$" + loanAmount.toFixed(2) + "</td></tr>";
+            }
+
+            table += "</table>";
+
+            loanTableDiv.innerHTML = table;
+
+        }, false);
+    </script>
+</body>
+
+</html>
